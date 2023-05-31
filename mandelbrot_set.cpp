@@ -1,5 +1,6 @@
 #include <iostream>
 #include <complex>
+#include <fstream>
 
 using namespace std;
 
@@ -19,13 +20,13 @@ int mandelbrotSet(const complex<double>& c, int maxIterations)
 
 int main()
 {
-    const int width = 80*1.5;
-    const int height = 40*2;
+    const int width = 80*1.5*3;
+    const int height = 40*2*3;
     const double xmin = -2.0;
     const double xmax = 1.0;
     const double ymin = -1.5;
     const double ymax = 1.5;
-
+    ofstream file("out.txt");
     for (int row = 0; row < height; ++row)
     {
         for (int col = 0; col < width; ++col)
@@ -38,11 +39,11 @@ int main()
 
             if (iterations == 1000)
             {
-                cout << '*';
+                file << '*';
             }
             else
             {
-                cout << ' ';
+                file << ' ';
             }
         }
 
